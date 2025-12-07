@@ -303,9 +303,9 @@ If you use JavaSense in academic work, please cite:
 ```bibtex
 @software{javasense2025,
   title={JavaSense: Temporal Logical Reasoning for Knowledge Graphs},
-  author={Your Name},
+  author={Srikar Balasubramanian},
   year={2025},
-  url={https://github.com/yourusername/javasense}
+  url={https://github.com/srik6724/javasense}
 }
 ```
 
