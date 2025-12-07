@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <key id="key0" for="edge" attr.name="owns" attr.type="long"/>
+    <key id="key1" for="edge" attr.name="Friends" attr.type="long"/>
+    <graph edgedefault="directed">
+        <node id="John"/>
+        <node id="Mary"/>
+        <node id="Justin"/>
+        <node id="Jack"/>
+        <node id="Dog"/>
+        <node id="Cat"/>
+        <edge id="0edcd2bc-71d7-4c44-9fe6-6d81c587b522" source="Justin" target="Mary">
+            <data key="key1">1</data>
+        </edge>
+        <edge id="823ff435-0f54-46ba-872c-976a069aba5f" source="John" target="Mary">
+            <data key="key1">1</data>
+        </edge>
+        <edge id="b77a3cd3-1e04-4471-8140-a19401f375cf" source="John" target="Justin">
+            <data key="key1">1</data>
+        </edge>
+        <edge id="bcc9f980-63dd-4b88-babc-0d8e5ab206fc" source="Mary" target="Cat">
+            <data key="key0">1</data>
+        </edge>
+        <edge id="8ec0397a-bc83-4e2d-9c74-889d40f3d288" source="Justin" target="Cat">
+            <data key="key0">1</data>
+        </edge>
+        <edge id="608cd9ed-2372-489a-9ef6-cf6603d79312" source="Justin" target="Dog">
+            <data key="key0">1</data>
+        </edge>
+        <edge id="9ecd9f89-cd21-4a87-8bca-8ff2af3b042a" source="John" target="Dog">
+            <data key="key0">1</data>
+        </edge>
+    </graph>
+</graphml>

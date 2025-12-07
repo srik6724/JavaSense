@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <key id="label" for="node" attr.name="label" attr.type="string"/>
+  <key id="label" for="edge" attr.name="label" attr.type="string"/>
+
+  <graph id="ContactNetwork" edgedefault="directed">
+
+    <!-- People in the network -->
+    <node id="Patient0">
+      <data key="label">Person</data>
+    </node>
+    <node id="Alice">
+      <data key="label">Person</data>
+    </node>
+    <node id="Bob">
+      <data key="label">Person</data>
+    </node>
+    <node id="Carol">
+      <data key="label">Person</data>
+    </node>
+    <node id="Dave">
+      <data key="label">Person</data>
+    </node>
+    <node id="Eve">
+      <data key="label">Person</data>
+    </node>
+    <node id="Frank">
+      <data key="label">Person</data>
+    </node>
+    <node id="Grace">
+      <data key="label">Person</data>
+    </node>
+    <node id="Henry">
+      <data key="label">Person</data>
+    </node>
+    <node id="Iris">
+      <data key="label">Person</data>
+    </node>
+
+    <!-- Contact relationships (bidirectional, represented as two edges) -->
+
+    <!-- Patient0's contacts (hub) -->
+    <edge id="e1" source="Patient0" target="Alice">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e2" source="Alice" target="Patient0">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e3" source="Patient0" target="Bob">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e4" source="Bob" target="Patient0">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e5" source="Patient0" target="Carol">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e6" source="Carol" target="Patient0">
+      <data key="label">Contact</data>
+    </edge>
+
+    <!-- Secondary contacts -->
+    <edge id="e7" source="Alice" target="Dave">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e8" source="Dave" target="Alice">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e9" source="Alice" target="Eve">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e10" source="Eve" target="Alice">
+      <data key="label">Contact</data>
+    </edge>
+
+    <edge id="e11" source="Bob" target="Frank">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e12" source="Frank" target="Bob">
+      <data key="label">Contact</data>
+    </edge>
+
+    <edge id="e13" source="Carol" target="Grace">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e14" source="Grace" target="Carol">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e15" source="Carol" target="Henry">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e16" source="Henry" target="Carol">
+      <data key="label">Contact</data>
+    </edge>
+
+    <!-- Tertiary contacts -->
+    <edge id="e17" source="Dave" target="Iris">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e18" source="Iris" target="Dave">
+      <data key="label">Contact</data>
+    </edge>
+
+    <edge id="e19" source="Frank" target="Grace">
+      <data key="label">Contact</data>
+    </edge>
+    <edge id="e20" source="Grace" target="Frank">
+      <data key="label">Contact</data>
+    </edge>
+
+  </graph>
+</graphml>

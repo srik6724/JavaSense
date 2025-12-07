@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml
+    xmlns="http://graphml.graphdrawing.org/xmlns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+                        http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+    <!-- Edge attribute keys -->
+    <key id="owns_pet"   for="edge" attr.name="owns_pet"   attr.type="long"/>
+    <key id="owns_car"   for="edge" attr.name="owns_car"   attr.type="long"/>
+    <key id="car_color"  for="edge" attr.name="car_color"  attr.type="long"/>
+    <key id="Friends"    for="edge" attr.name="Friends"    attr.type="long"/>
+
+    <graph edgedefault="directed">
+
+        <!-- Customers -->
+        <node id="customer_0"/>
+        <node id="customer_1"/>
+        <node id="customer_2"/>
+        <node id="customer_3"/>
+        <node id="customer_4"/>
+
+        <!-- Pets -->
+        <node id="Pet_0"/>
+        <node id="Pet_1"/>
+        <node id="Pet_2"/>
+        <node id="Pet_3"/>
+        <node id="Pet_4"/>
+
+        <!-- Cars (colors assigned via edges) -->
+        <node id="Car_0"/>
+        <node id="Car_1"/>
+        <node id="Car_2"/>
+        <node id="Car_3"/>
+        <node id="Car_4"/>
+
+        <!-- Friendships -->
+        <edge source="customer_0" target="customer_1">
+            <data key="Friends">1</data>
+        </edge>
+        <edge source="customer_1" target="customer_2">
+            <data key="Friends">1</data>
+        </edge>
+        <edge source="customer_2" target="customer_3">
+            <data key="Friends">1</data>
+        </edge>
+        <edge source="customer_3" target="customer_4">
+            <data key="Friends">1</data>
+        </edge>
+        <edge source="customer_4" target="customer_0">
+            <data key="Friends">1</data>
+        </edge>
+
+        <!-- Pet ownership -->
+        <edge source="customer_0" target="Pet_0">
+            <data key="owns_pet">1</data>
+        </edge>
+        <edge source="customer_1" target="Pet_1">
+            <data key="owns_pet">1</data>
+        </edge>
+        <edge source="customer_2" target="Pet_2">
+            <data key="owns_pet">1</data>
+        </edge>
+        <edge source="customer_3" target="Pet_3">
+            <data key="owns_pet">1</data>
+        </edge>
+        <edge source="customer_4" target="Pet_4">
+            <data key="owns_pet">1</data>
+        </edge>
+
+        <!-- Car ownership -->
+        <edge source="customer_0" target="Car_0">
+            <data key="owns_car">1</data>
+        </edge>
+        <edge source="customer_1" target="Car_1">
+            <data key="owns_car">1</data>
+        </edge>
+        <edge source="customer_2" target="Car_2">
+            <data key="owns_car">1</data>
+        </edge>
+        <edge source="customer_3" target="Car_3">
+            <data key="owns_car">1</data>
+        </edge>
+        <edge source="customer_4" target="Car_4">
+            <data key="owns_car">1</data>
+        </edge>
+
+        <!-- Car colors (this is how PyReason encodes car_color_id) -->
+        <edge source="Car_0" target="color_0">
+            <data key="car_color">1</data>
+        </edge>
+        <edge source="Car_1" target="color_1">
+            <data key="car_color">1</data>
+        </edge>
+        <edge source="Car_2" target="color_2">
+            <data key="car_color">1</data>
+        </edge>
+        <edge source="Car_3" target="color_3">
+            <data key="car_color">1</data>
+        </edge>
+        <edge source="Car_4" target="color_4">
+            <data key="car_color">1</data>
+        </edge>
+
+        <!-- Car color nodes -->
+        <node id="color_0"/>
+        <node id="color_1"/>
+        <node id="color_2"/>
+        <node id="color_3"/>
+        <node id="color_4"/>
+
+    </graph>
+</graphml>

@@ -1,0 +1,74 @@
+2025-12-06 18:29:10.312 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@b5fd6b6
+2025-12-06 18:29:10.329 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@70dc978c
+2025-12-06 18:29:10.345 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:29:10.362 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added rule: Rule{name='upstream_risk', raw='atRisk(y) <-1 cantDeliver(x), COGS(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:29:10.392 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added rule: Rule{name='cascading_disruption', raw='disrupted(y) <-2 atRisk(y), atRisk(y)', delay=2, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:29:10.392 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added rule: Rule{name='critical_relationship_risk', raw='criticalRisk(y) <-1 cantDeliver(x), COGS(x,y), highValue(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:29:10.392 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Added rule: Rule{name='capacity_impact', raw='capacityRisk(y) <-1 disrupted(x), CAPEX(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:29:10.392 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 18:29:10.392 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Timesteps: 20
+2025-12-06 18:29:10.392 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Rules: 5
+2025-12-06 18:29:10.399 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - Facts: 2
+2025-12-06 18:29:25.114 [com.example.ExampleHondaSupplyChain.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-06 18:39:32.141 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 18:39:32.146 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Timesteps: 0
+2025-12-06 18:39:32.151 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Rules: 0
+2025-12-06 18:39:32.151 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Facts: 0
+2025-12-06 18:39:32.439 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-06 18:39:32.578 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@3ed17d6
+2025-12-06 18:39:32.579 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@1dbb418d
+2025-12-06 18:39:32.595 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:32.603 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added rule: Rule{name='identify_supply', raw='hasSupplyRelation(x,y) <-1 type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:32.605 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added rule: Rule{name='identify_connection', raw='connected(x,y) <-1 cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:32.609 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added rule: Rule{name='upstream_risk_via_type', raw='atRisk(y) <-1 cantDeliver(x), type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:32.610 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added rule: Rule{name='upstream_risk_via_cost', raw='atRisk(y) <-1 cantDeliver(x), cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:32.612 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Added rule: Rule{name='mark_dependency', raw='hasDependency(y) <-1 atRisk(y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:32.613 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 18:39:32.614 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Timesteps: 5
+2025-12-06 18:39:32.615 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Rules: 6
+2025-12-06 18:39:32.615 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - Facts: 2
+2025-12-06 18:41:08.033 [com.example.ExampleHondaSupplyChainFixed.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-06 20:28:50.919 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@24eba37a
+2025-12-06 20:28:50.925 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@7201b99
+2025-12-06 20:28:50.929 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 20:28:50.933 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_type', raw='atRisk(y) <-1 cantDeliver(x), type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 20:28:50.933 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_cost', raw='atRisk(y) <-1 cantDeliver(x), cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 20:28:50.934 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_value', raw='atRisk(y) <-1 cantDeliver(x), value(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 20:28:50.935 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 20:28:50.935 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Timesteps: 5
+2025-12-06 20:28:50.935 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Rules: 4
+2025-12-06 20:28:50.935 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - Facts: 2
+2025-12-06 20:28:59.054 [com.example.ExampleHondaFastAnalysis.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-07 08:25:15.995 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@49c5bb61
+2025-12-07 08:25:16.000 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@70225034
+2025-12-07 08:25:16.007 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:25:16.012 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_type', raw='atRisk(y) <-1 cantDeliver(x), type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:25:16.013 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_cost', raw='atRisk(y) <-1 cantDeliver(x), cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:25:16.015 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_value', raw='atRisk(y) <-1 cantDeliver(x), value(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:25:16.017 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-07 08:25:16.017 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Timesteps: 5
+2025-12-07 08:25:16.017 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Rules: 4
+2025-12-07 08:25:16.018 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Facts: 2
+2025-12-07 08:25:21.522 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-07 08:33:12.156 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@4ba84f50
+2025-12-07 08:33:12.162 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@425a9287
+2025-12-07 08:33:12.170 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:33:12.174 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_type', raw='atRisk(y) <-1 cantDeliver(x), type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:33:12.175 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_cost', raw='atRisk(y) <-1 cantDeliver(x), cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:33:12.176 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_value', raw='atRisk(y) <-1 cantDeliver(x), value(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:33:12.177 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-07 08:33:12.178 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Timesteps: 5
+2025-12-07 08:33:12.178 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Rules: 4
+2025-12-07 08:33:12.178 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Facts: 2
+2025-12-07 08:33:17.511 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-07 08:38:05.361 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@49c5bb61
+2025-12-07 08:38:05.367 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@70225034
+2025-12-07 08:38:05.372 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:38:05.374 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_type', raw='atRisk(y) <-1 cantDeliver(x), type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:38:05.375 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_cost', raw='atRisk(y) <-1 cantDeliver(x), cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:38:05.376 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Added rule: Rule{name='risk_via_value', raw='atRisk(y) <-1 cantDeliver(x), value(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-07 08:38:05.377 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-07 08:38:05.377 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Timesteps: 5
+2025-12-07 08:38:05.378 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Rules: 4
+2025-12-07 08:38:05.378 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Facts: 2
+2025-12-07 08:38:10.764 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===

@@ -1,0 +1,5 @@
+1. Parse facts. 
+2. Parse rules
+3. Add facts and rules using format. 
+4. Create graphml file
+5. 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <key id="label" for="node" attr.name="label" attr.type="string"/>
+  <key id="label" for="edge" attr.name="label" attr.type="string"/>
+
+  <graph id="OrganizationGraph" edgedefault="directed">
+
+    <!-- Employees -->
+    <node id="Alice">
+      <data key="label">Employee</data>
+    </node>
+    <node id="Bob">
+      <data key="label">Employee</data>
+    </node>
+    <node id="Carol">
+      <data key="label">Employee</data>
+    </node>
+    <node id="Dave">
+      <data key="label">Employee</data>
+    </node>
+    <node id="Eve">
+      <data key="label">Manager</data>
+    </node>
+    <node id="Frank">
+      <data key="label">Manager</data>
+    </node>
+    <node id="Grace">
+      <data key="label">Guest</data>
+    </node>
+
+    <!-- Resources -->
+    <node id="Database">
+      <data key="label">Resource</data>
+    </node>
+    <node id="AdminPanel">
+      <data key="label">Resource</data>
+    </node>
+    <node id="Reports">
+      <data key="label">Resource</data>
+    </node>
+    <node id="PublicDocs">
+      <data key="label">Resource</data>
+    </node>
+
+    <!-- Roles -->
+    <node id="Developer">
+      <data key="label">Role</data>
+    </node>
+    <node id="Manager">
+      <data key="label">Role</data>
+    </node>
+    <node id="Guest">
+      <data key="label">Role</data>
+    </node>
+
+    <!-- Mentorship Relationships -->
+    <edge id="e1" source="Alice" target="Bob">
+      <data key="label">Mentors</data>
+    </edge>
+    <edge id="e2" source="Bob" target="Carol">
+      <data key="label">Mentors</data>
+    </edge>
+    <edge id="e3" source="Eve" target="Dave">
+      <data key="label">Mentors</data>
+    </edge>
+
+    <!-- Collaboration Relationships -->
+    <edge id="e4" source="Alice" target="Dave">
+      <data key="label">Collaborates</data>
+    </edge>
+    <edge id="e5" source="Bob" target="Carol">
+      <data key="label">Collaborates</data>
+    </edge>
+    <edge id="e6" source="Carol" target="Dave">
+      <data key="label">Collaborates</data>
+    </edge>
+
+    <!-- Management Relationships -->
+    <edge id="e7" source="Eve" target="Alice">
+      <data key="label">Manages</data>
+    </edge>
+    <edge id="e8" source="Eve" target="Bob">
+      <data key="label">Manages</data>
+    </edge>
+    <edge id="e9" source="Frank" target="Carol">
+      <data key="label">Manages</data>
+    </edge>
+    <edge id="e10" source="Frank" target="Dave">
+      <data key="label">Manages</data>
+    </edge>
+
+  </graph>
+</graphml>

@@ -1,0 +1,15 @@
+com\example\Main.class
+com\example\JavaSense.class
+com\example\MainAdvanced.class
+com\example\MainSupplier.class
+com\example\Atom.class
+com\example\Interval.class
+com\example\GraphToFactsConverter.class
+com\example\Reasoner.class
+com\example\Fact.class
+com\example\Graph.class
+com\example\Rule.class
+com\example\TimedFact.class
+com\example\ReasoningInterpretation.class
+com\example\Interpretation.class
+com\example\RelEdge.class

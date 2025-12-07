@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml
+    xmlns="http://graphml.graphdrawing.org/xmlns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+                        http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+    <!-- Edge attribute keys; id == attr.name to match your loader -->
+    <key id="supplies" for="edge" attr.name="supplies" attr.type="long"/>
+    <key id="ships"    for="edge" attr.name="ships"    attr.type="long"/>
+    <key id="serves"   for="edge" attr.name="serves"   attr.type="long"/>
+
+    <graph edgedefault="directed">
+
+        <!-- Suppliers -->
+        <node id="S1"/>
+        <node id="S2"/>
+        <node id="S3"/>
+
+        <!-- Factories -->
+        <node id="F1"/>
+        <node id="F2"/>
+
+        <!-- Warehouses -->
+        <node id="W1"/>
+        <node id="W2"/>
+
+        <!-- Customers -->
+        <node id="C1"/>
+        <node id="C2"/>
+
+        <!-- Supplier → Factory (supplies) -->
+        <edge source="S1" target="F1">
+            <data key="supplies">1</data>
+        </edge>
+        <edge source="S2" target="F1">
+            <data key="supplies">1</data>
+        </edge>
+        <edge source="S2" target="F2">
+            <data key="supplies">1</data>
+        </edge>
+        <edge source="S3" target="F2">
+            <data key="supplies">1</data>
+        </edge>
+
+        <!-- Factory → Warehouse (ships) -->
+        <edge source="F1" target="W1">
+            <data key="ships">1</data>
+        </edge>
+        <edge source="F2" target="W2">
+            <data key="ships">1</data>
+        </edge>
+
+        <!-- Warehouse → Customer (serves) -->
+        <edge source="W1" target="C1">
+            <data key="serves">1</data>
+        </edge>
+        <edge source="W2" target="C1">
+            <data key="serves">1</data>
+        </edge>
+        <edge source="W2" target="C2">
+            <data key="serves">1</data>
+        </edge>
+
+    </graph>
+</graphml>

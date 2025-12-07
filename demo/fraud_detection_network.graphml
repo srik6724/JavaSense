@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <!-- Attribute definitions -->
+  <key id="d0" for="node" attr.name="accountAge" attr.type="int"/>
+  <key id="d1" for="node" attr.name="accountType" attr.type="string"/>
+  <key id="d2" for="node" attr.name="location" attr.type="string"/>
+  <key id="d3" for="node" attr.name="riskScore" attr.type="int"/>
+
+  <key id="e0" for="edge" attr.name="transactionAmount" attr.type="int"/>
+  <key id="e1" for="edge" attr.name="transactionType" attr.type="string"/>
+  <key id="e2" for="edge" attr.name="deviceId" attr.type="string"/>
+  <key id="e3" for="edge" attr.name="timestamp" attr.type="int"/>
+
+  <graph id="FraudDetectionNetwork" edgedefault="directed">
+
+    <!-- Normal accounts (low risk) -->
+    <node id="acct1">
+      <data key="d0">730</data> <!-- 2 years old -->
+      <data key="d1">personal</data>
+      <data key="d2">USA</data>
+      <data key="d3">10</data>
+    </node>
+    <node id="acct2">
+      <data key="d0">1095</data> <!-- 3 years old -->
+      <data key="d1">business</data>
+      <data key="d2">USA</data>
+      <data key="d3">5</data>
+    </node>
+    <node id="acct3">
+      <data key="d0">365</data> <!-- 1 year old -->
+      <data key="d1">personal</data>
+      <data key="d2">Canada</data>
+      <data key="d3">15</data>
+    </node>
+    <node id="acct4">
+      <data key="d0">500</data>
+      <data key="d1">personal</data>
+      <data key="d2">UK</data>
+      <data key="d3">12</data>
+    </node>
+    <node id="acct5">
+      <data key="d0">900</data>
+      <data key="d1">business</data>
+      <data key="d2">USA</data>
+      <data key="d3">8</data>
+    </node>
+
+    <!-- Suspicious accounts (medium risk) -->
+    <node id="acct10">
+      <data key="d0">90</data> <!-- 3 months old -->
+      <data key="d1">personal</data>
+      <data key="d2">USA</data>
+      <data key="d3">45</data>
+    </node>
+    <node id="acct11">
+      <data key="d0">60</data> <!-- 2 months old -->
+      <data key="d1">personal</data>
+      <data key="d2">Nigeria</data>
+      <data key="d3">65</data>
+    </node>
+    <node id="acct12">
+      <data key="d0">30</data> <!-- 1 month old -->
+      <data key="d1">personal</data>
+      <data key="d2">Russia</data>
+      <data key="d3">70</data>
+    </node>
+
+    <!-- High-risk accounts (new + suspicious patterns) -->
+    <node id="acct20">
+      <data key="d0">5</data> <!-- 5 days old -->
+      <data key="d1">personal</data>
+      <data key="d2">China</data>
+      <data key="d3">85</data>
+    </node>
+    <node id="acct21">
+      <data key="d0">7</data> <!-- 1 week old -->
+      <data key="d1">personal</data>
+      <data key="d2">Ukraine</data>
+      <data key="d3">90</data>
+    </node>
+    <node id="acct22">
+      <data key="d0">3</data> <!-- 3 days old -->
+      <data key="d1">personal</data>
+      <data key="d2">Romania</data>
+      <data key="d3">95</data>
+    </node>
+    <node id="acct23">
+      <data key="d0">2</data> <!-- 2 days old -->
+      <data key="d1">personal</data>
+      <data key="d2">Vietnam</data>
+      <data key="d3">98</data>
+    </node>
+
+    <!-- Merchants/Recipients -->
+    <node id="merchant1">
+      <data key="d0">1825</data> <!-- 5 years old -->
+      <data key="d1">merchant</data>
+      <data key="d2">USA</data>
+      <data key="d3">0</data>
+    </node>
+    <node id="merchant2">
+      <data key="d0">1460</data> <!-- 4 years old -->
+      <data key="d1">merchant</data>
+      <data key="d2">USA</data>
+      <data key="d3">0</data>
+    </node>
+    <node id="merchant3">
+      <data key="d0">730</data>
+      <data key="d1">merchant</data>
+      <data key="d2">UK</data>
+      <data key="d3">0</data>
+    </node>
+
+    <!-- NORMAL TRANSACTION PATTERNS -->
+
+    <!-- Account 1: Normal spending -->
+    <edge id="txn1" source="acct1" target="merchant1">
+      <data key="e0">50</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_A1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn2" source="acct1" target="merchant2">
+      <data key="e0">75</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_A1</data>
+      <data key="e3">2</data>
+    </edge>
+    <edge id="txn3" source="acct1" target="merchant1">
+      <data key="e0">100</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_A1</data>
+      <data key="e3">5</data>
+    </edge>
+
+    <!-- Account 2: Business transactions -->
+    <edge id="txn10" source="acct2" target="merchant3">
+      <data key="e0">500</data>
+      <data key="e1">invoice</data>
+      <data key="e2">device_B1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn11" source="acct2" target="merchant3">
+      <data key="e0">450</data>
+      <data key="e1">invoice</data>
+      <data key="e2">device_B1</data>
+      <data key="e3">3</data>
+    </edge>
+
+    <!-- Account 3: Normal international -->
+    <edge id="txn20" source="acct3" target="merchant1">
+      <data key="e0">80</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_C1</data>
+      <data key="e3">2</data>
+    </edge>
+
+    <!-- SUSPICIOUS PATTERNS -->
+
+    <!-- Account 10: RAPID TRANSACTIONS (velocity fraud) -->
+    <edge id="txn100" source="acct10" target="merchant1">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_D1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn101" source="acct10" target="merchant2">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_D1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn102" source="acct10" target="merchant1">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_D1</data>
+      <data key="e3">2</data>
+    </edge>
+    <edge id="txn103" source="acct10" target="merchant2">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_D1</data>
+      <data key="e3">2</data>
+    </edge>
+
+    <!-- Account 11: NEW DEVICE + FOREIGN LOCATION -->
+    <edge id="txn110" source="acct11" target="merchant1">
+      <data key="e0">1000</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_NEW_X</data> <!-- New device! -->
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn111" source="acct11" target="merchant2">
+      <data key="e0">1500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_NEW_X</data>
+      <data key="e3">2</data>
+    </edge>
+
+    <!-- Account 12: ROUND NUMBERS + HIGH AMOUNTS -->
+    <edge id="txn120" source="acct12" target="merchant1">
+      <data key="e0">10000</data> <!-- Exactly $10,000 -->
+      <data key="e1">wire</data>
+      <data key="e2">device_E1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn121" source="acct12" target="merchant2">
+      <data key="e0">10000</data> <!-- Another $10,000 -->
+      <data key="e1">wire</data>
+      <data key="e2">device_E1</data>
+      <data key="e3">2</data>
+    </edge>
+
+    <!-- HIGH-RISK FRAUD PATTERNS -->
+
+    <!-- Account 20: NEW ACCOUNT + LARGE TRANSACTION + NEW DEVICE + FOREIGN -->
+    <edge id="txn200" source="acct20" target="merchant1">
+      <data key="e0">10000</data>
+      <data key="e1">wire</data>
+      <data key="e2">device_NEW_Y</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn201" source="acct20" target="acct1"> <!-- Money mule transfer -->
+      <data key="e0">9500</data>
+      <data key="e1">transfer</data>
+      <data key="e2">device_NEW_Y</data>
+      <data key="e3">2</data>
+    </edge>
+
+    <!-- Account 21: ACCOUNT TAKEOVER PATTERN -->
+    <edge id="txn210" source="acct21" target="merchant1">
+      <data key="e0">5000</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_F1</data> <!-- Original device -->
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn211" source="acct21" target="merchant2">
+      <data key="e0">7500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_NEW_Z</data> <!-- DEVICE CHANGE! -->
+      <data key="e3">2</data>
+    </edge>
+    <edge id="txn212" source="acct21" target="merchant1">
+      <data key="e0">10000</data>
+      <data key="e1">wire</data>
+      <data key="e2">device_NEW_Z</data> <!-- Same new device -->
+      <data key="e3">3</data>
+    </edge>
+
+    <!-- Account 22: BURST ACTIVITY PATTERN -->
+    <edge id="txn220" source="acct22" target="merchant1">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_G1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn221" source="acct22" target="merchant2">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_G1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn222" source="acct22" target="merchant1">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_G1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn223" source="acct22" target="merchant2">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_G1</data>
+      <data key="e3">2</data>
+    </edge>
+    <edge id="txn224" source="acct22" target="merchant1">
+      <data key="e0">500</data>
+      <data key="e1">purchase</data>
+      <data key="e2">device_G1</data>
+      <data key="e3">2</data>
+    </edge>
+
+    <!-- Account 23: ESCALATING AMOUNTS -->
+    <edge id="txn230" source="acct23" target="merchant1">
+      <data key="e0">100</data> <!-- Start small -->
+      <data key="e1">purchase</data>
+      <data key="e2">device_H1</data>
+      <data key="e3">1</data>
+    </edge>
+    <edge id="txn231" source="acct23" target="merchant2">
+      <data key="e0">500</data> <!-- Test the waters -->
+      <data key="e1">purchase</data>
+      <data key="e2">device_H1</data>
+      <data key="e3">2</data>
+    </edge>
+    <edge id="txn232" source="acct23" target="merchant1">
+      <data key="e0">2000</data> <!-- Ramp up -->
+      <data key="e1">purchase</data>
+      <data key="e2">device_H1</data>
+      <data key="e3">3</data>
+    </edge>
+    <edge id="txn233" source="acct23" target="merchant2">
+      <data key="e0">10000</data> <!-- Big fraud! -->
+      <data key="e1">wire</data>
+      <data key="e2">device_H1</data>
+      <data key="e3">4</data>
+    </edge>
+
+    <!-- Money mule network (high-risk transfers between accounts) -->
+    <edge id="txn300" source="acct20" target="acct21">
+      <data key="e0">5000</data>
+      <data key="e1">transfer</data>
+      <data key="e2">device_NEW_Y</data>
+      <data key="e3">3</data>
+    </edge>
+    <edge id="txn301" source="acct21" target="acct22">
+      <data key="e0">4500</data>
+      <data key="e1">transfer</data>
+      <data key="e2">device_NEW_Z</data>
+      <data key="e3">4</data>
+    </edge>
+    <edge id="txn302" source="acct22" target="acct23">
+      <data key="e0">4000</data>
+      <data key="e1">transfer</data>
+      <data key="e2">device_G1</data>
+      <data key="e3">5</data>
+    </edge>
+
+  </graph>
+</graphml>

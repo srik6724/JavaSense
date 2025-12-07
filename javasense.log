@@ -1,0 +1,30 @@
+2025-12-06 18:28:58.870 [main] INFO  com.example.JavaSense - Added fact: com.example.Fact@176d53b2
+2025-12-06 18:28:58.876 [main] INFO  com.example.JavaSense - Added fact: com.example.Fact@770c2e6b
+2025-12-06 18:28:58.898 [main] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:28:58.934 [main] INFO  com.example.JavaSense - Added rule: Rule{name='upstream_risk', raw='atRisk(y) <-1 cantDeliver(x), COGS(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:28:58.939 [main] INFO  com.example.JavaSense - Added rule: Rule{name='cascading_disruption', raw='disrupted(y) <-2 atRisk(y), atRisk(y)', delay=2, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:28:58.950 [main] INFO  com.example.JavaSense - Added rule: Rule{name='critical_relationship_risk', raw='criticalRisk(y) <-1 cantDeliver(x), COGS(x,y), highValue(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:28:58.950 [main] INFO  com.example.JavaSense - Added rule: Rule{name='capacity_impact', raw='capacityRisk(y) <-1 disrupted(x), CAPEX(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:28:58.950 [main] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 18:28:58.950 [main] INFO  com.example.JavaSense - Timesteps: 20
+2025-12-06 18:28:58.950 [main] INFO  com.example.JavaSense - Rules: 5
+2025-12-06 18:28:58.950 [main] INFO  com.example.JavaSense - Facts: 2
+2025-12-06 18:28:59.046 [main] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-06 18:39:12.385 [main] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 18:39:12.393 [main] INFO  com.example.JavaSense - Timesteps: 0
+2025-12-06 18:39:12.397 [main] INFO  com.example.JavaSense - Rules: 0
+2025-12-06 18:39:12.397 [main] INFO  com.example.JavaSense - Facts: 0
+2025-12-06 18:39:12.408 [main] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-06 18:39:12.440 [main] INFO  com.example.JavaSense - Added fact: com.example.Fact@55040f2f
+2025-12-06 18:39:12.441 [main] INFO  com.example.JavaSense - Added fact: com.example.Fact@64c87930
+2025-12-06 18:39:12.448 [main] INFO  com.example.JavaSense - Added rule: Rule{name='direct_impact', raw='cantDeliver(x) <-1 disrupted(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:12.474 [main] INFO  com.example.JavaSense - Added rule: Rule{name='identify_supply', raw='hasSupplyRelation(x,y) <-1 type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:12.476 [main] INFO  com.example.JavaSense - Added rule: Rule{name='identify_connection', raw='connected(x,y) <-1 cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:12.478 [main] INFO  com.example.JavaSense - Added rule: Rule{name='upstream_risk_via_type', raw='atRisk(y) <-1 cantDeliver(x), type(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:12.479 [main] INFO  com.example.JavaSense - Added rule: Rule{name='upstream_risk_via_cost', raw='atRisk(y) <-1 cantDeliver(x), cost(x,y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:12.480 [main] INFO  com.example.JavaSense - Added rule: Rule{name='mark_dependency', raw='hasDependency(y) <-1 atRisk(y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-06 18:39:12.481 [main] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-06 18:39:12.482 [main] INFO  com.example.JavaSense - Timesteps: 5
+2025-12-06 18:39:12.482 [main] INFO  com.example.JavaSense - Rules: 6
+2025-12-06 18:39:12.483 [main] INFO  com.example.JavaSense - Facts: 2
+2025-12-06 18:39:12.514 [main] INFO  com.example.JavaSense - === JavaSense reasoning completed ===

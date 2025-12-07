@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <key id="label" for="node" attr.name="label" attr.type="string"/>
+  <key id="label" for="edge" attr.name="label" attr.type="string"/>
+
+  <graph id="TransactionNetwork" edgedefault="directed">
+
+    <!-- Bank Accounts -->
+    <node id="Account001">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account002">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account003">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account004">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account005">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account006">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account007">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account008">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account009">
+      <data key="label">Account</data>
+    </node>
+    <node id="Account010">
+      <data key="label">Account</data>
+    </node>
+
+    <!-- Transfer relationships (who sent money to whom) -->
+    <edge id="t1" source="Account001" target="Account002">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t2" source="Account001" target="Account003">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t3" source="Account002" target="Account004">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t4" source="Account003" target="Account005">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t5" source="Account004" target="Account006">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t6" source="Account005" target="Account006">
+      <data key="label">Transfer</data>
+    </edge>
+
+    <!-- Suspicious patterns: rapid transfers -->
+    <edge id="t7" source="Account006" target="Account007">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t8" source="Account007" target="Account008">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t9" source="Account008" target="Account009">
+      <data key="label">Transfer</data>
+    </edge>
+
+    <!-- Circular transfer pattern (layering) -->
+    <edge id="t10" source="Account009" target="Account010">
+      <data key="label">Transfer</data>
+    </edge>
+    <edge id="t11" source="Account010" target="Account006">
+      <data key="label">Transfer</data>
+    </edge>
+
+    <!-- Back to known accounts (integration) -->
+    <edge id="t12" source="Account009" target="Account001">
+      <data key="label">Transfer</data>
+    </edge>
+
+  </graph>
+</graphml>

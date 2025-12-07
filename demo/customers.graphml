@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <key id="label" for="node" attr.name="label" attr.type="string"/>
+  <key id="label" for="edge" attr.name="label" attr.type="string"/>
+
+  <graph id="CustomerNetwork" edgedefault="directed">
+
+    <!-- Customers -->
+    <node id="Alice">
+      <data key="label">Customer</data>
+    </node>
+    <node id="Bob">
+      <data key="label">Customer</data>
+    </node>
+    <node id="Carol">
+      <data key="label">Customer</data>
+    </node>
+    <node id="Dave">
+      <data key="label">Customer</data>
+    </node>
+    <node id="Eve">
+      <data key="label">Customer</data>
+    </node>
+    <node id="Frank">
+      <data key="label">Customer</data>
+    </node>
+
+    <!-- Products -->
+    <node id="Laptop">
+      <data key="label">Product</data>
+    </node>
+    <node id="Phone">
+      <data key="label">Product</data>
+    </node>
+    <node id="Tablet">
+      <data key="label">Product</data>
+    </node>
+    <node id="Headphones">
+      <data key="label">Product</data>
+    </node>
+    <node id="Keyboard">
+      <data key="label">Product</data>
+    </node>
+    <node id="Mouse">
+      <data key="label">Product</data>
+    </node>
+    <node id="Monitor">
+      <data key="label">Product</data>
+    </node>
+    <node id="Charger">
+      <data key="label">Product</data>
+    </node>
+
+    <!-- Purchase relationships (who bought what) -->
+
+    <!-- Alice: Tech enthusiast -->
+    <edge id="p1" source="Alice" target="Laptop">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p2" source="Alice" target="Headphones">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p3" source="Alice" target="Keyboard">
+      <data key="label">purchased</data>
+    </edge>
+
+    <!-- Bob: Similar to Alice -->
+    <edge id="p4" source="Bob" target="Laptop">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p5" source="Bob" target="Headphones">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p6" source="Bob" target="Mouse">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p7" source="Bob" target="Monitor">
+      <data key="label">purchased</data>
+    </edge>
+
+    <!-- Carol: Similar to Alice and Bob -->
+    <edge id="p8" source="Carol" target="Laptop">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p9" source="Carol" target="Keyboard">
+      <data key="label">purchased</data>
+    </edge>
+
+    <!-- Dave: Mobile user -->
+    <edge id="p10" source="Dave" target="Phone">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p11" source="Dave" target="Tablet">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p12" source="Dave" target="Charger">
+      <data key="label">purchased</data>
+    </edge>
+
+    <!-- Eve: Similar to Dave -->
+    <edge id="p13" source="Eve" target="Phone">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p14" source="Eve" target="Tablet">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p15" source="Eve" target="Headphones">
+      <data key="label">purchased</data>
+    </edge>
+
+    <!-- Frank: Diverse buyer -->
+    <edge id="p16" source="Frank" target="Laptop">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p17" source="Frank" target="Phone">
+      <data key="label">purchased</data>
+    </edge>
+    <edge id="p18" source="Frank" target="Monitor">
+      <data key="label">purchased</data>
+    </edge>
+
+  </graph>
+</graphml>
