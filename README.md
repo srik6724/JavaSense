@@ -288,7 +288,7 @@ Contributions are welcome! Please:
 
 ## License
 
-Apache License 2.0 - see [LICENSE](LICENSE) file for details.
+Commercial License listed in LICENSE-COMMERCIAL.md
 
 ## Support
 
