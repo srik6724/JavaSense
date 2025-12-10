@@ -72,3 +72,44 @@
 2025-12-07 08:38:05.378 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Rules: 4
 2025-12-07 08:38:05.378 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - Facts: 2
 2025-12-07 08:38:10.764 [com.example.ExampleHondaOptimized.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-09 17:40:42.485 [com.example.ExampleNewFeatures.main()] INFO  com.example.StreamingReasoner - StreamingReasoner initialized with maxTimesteps=100
+2025-12-09 17:40:42.550 [com.example.ExampleNewFeatures.main()] INFO  com.example.StreamingReasoner - StreamingReasoner initialized with maxTimesteps=100
+2025-12-09 17:40:42.553 [com.example.ExampleNewFeatures.main()] INFO  c.example.integration.KafkaReasoner - KafkaReasoner created for topics: [transactions]
+2025-12-09 17:40:42.580 [com.example.ExampleNewFeatures.main()] INFO  c.example.integration.KafkaReasoner - Starting Kafka consumer for topics: [transactions]
+2025-12-09 17:40:42.583 [com.example.ExampleNewFeatures.main()] INFO  c.example.integration.KafkaReasoner - Kafka consumer started
+2025-12-09 17:40:42.785 [com.example.ExampleNewFeatures.main()] INFO  c.example.integration.KafkaReasoner - Kafka consumer stopped
+2025-12-09 17:40:42.793 [com.example.ExampleNewFeatures.main()] INFO  com.example.RuleValidator - Starting rule validation for 7 rules
+2025-12-09 17:40:42.802 [com.example.ExampleNewFeatures.main()] INFO  com.example.RuleValidator - Validation complete: 3 errors, 11 warnings
+2025-12-09 18:48:55.063 [main] ERROR com.example.ConstraintValidator - Hard constraint violated: unique_loc at t=3
+2025-12-09 18:48:55.068 [main] ERROR com.example.ConstraintValidator - Hard constraint violated: unique_loc at t=4
+2025-12-09 18:48:55.069 [main] ERROR com.example.ConstraintValidator - Hard constraint violated: unique_loc at t=5
+2025-12-09 18:48:55.093 [main] INFO  com.example.IncrementalReasoner - Initial reasoning completed with 1 facts
+2025-12-09 18:48:55.094 [main] INFO  com.example.IncrementalReasoner - Starting incremental reasoning with 1 new facts
+2025-12-09 18:48:55.095 [main] INFO  com.example.IncrementalReasoner - Incremental reasoning completed in 2 iterations, 11 timesteps affected
+2025-12-09 18:48:55.114 [main] INFO  com.example.IncrementalReasoner - Initial reasoning completed with 1 facts
+2025-12-09 18:48:55.114 [main] INFO  com.example.IncrementalReasoner - Starting incremental reasoning with 1 new facts
+2025-12-09 18:48:55.116 [main] INFO  com.example.IncrementalReasoner - Incremental reasoning completed in 2 iterations, 11 timesteps affected
+2025-12-09 18:48:55.211 [main] INFO  com.example.JavaSense - Added fact: com.example.Fact@1787f2a0
+2025-12-09 18:48:55.212 [main] INFO  com.example.JavaSense - Added rule: Rule{name='rule1', raw='derived(x) <- base(x)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-09 18:48:55.217 [main] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-09 18:48:55.217 [main] INFO  com.example.JavaSense - Timesteps: 2
+2025-12-09 18:48:55.217 [main] INFO  com.example.JavaSense - Rules: 1
+2025-12-09 18:48:55.217 [main] INFO  com.example.JavaSense - Facts: 1
+2025-12-09 18:48:55.218 [main] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-09 18:49:24.877 [com.example.ExampleProbabilistic.main()] INFO  com.example.ProbabilisticReasoner - Set minimum probability threshold to 0.5
+2025-12-09 18:49:24.888 [com.example.ExampleProbabilistic.main()] INFO  com.example.ProbabilisticReasoner - Starting probabilistic reasoning for 10 timesteps
+2025-12-09 18:49:24.897 [com.example.ExampleProbabilistic.main()] INFO  com.example.ProbabilisticReasoner - Probabilistic reasoning complete. 77 facts above threshold 0.5
+2025-12-09 18:52:29.485 [com.example.ExampleContinuousTime.main()] INFO  com.example.ContinuousTimeReasoner - Reasoning over time range: [2025-01-15 00:00:00, 2025-01-15 08:00:00]
+2025-12-09 18:52:29.501 [com.example.ExampleContinuousTime.main()] INFO  com.example.ContinuousTimeReasoner - Reasoning complete. 100 sample points processed
+2025-12-09 18:53:33.355 [com.example.ExampleOptimization.main()] INFO  com.example.OptimizationReasoner - Set custom objective function: MINIMIZE
+2025-12-09 18:53:33.361 [com.example.ExampleOptimization.main()] INFO  com.example.OptimizationReasoner - Starting optimization reasoning for 10 timesteps
+2025-12-09 18:53:33.365 [com.example.ExampleOptimization.main()] INFO  com.example.OptimizationReasoner - Generated 22 candidate solutions
+2025-12-09 18:53:33.367 [com.example.ExampleOptimization.main()] INFO  com.example.OptimizationReasoner - 22 feasible solutions after hard constraint filtering
+2025-12-09 18:53:33.386 [com.example.ExampleOptimization.main()] INFO  com.example.OptimizationReasoner - Optimization complete. Best score: 0.0
+2025-12-09 18:54:20.347 [com.example.ExampleV12Combined.main()] INFO  com.example.ProbabilisticReasoner - Starting probabilistic reasoning for 10 timesteps
+2025-12-09 18:54:20.357 [com.example.ExampleV12Combined.main()] INFO  com.example.ProbabilisticReasoner - Probabilistic reasoning complete. 22 facts above threshold 0.0
+2025-12-09 18:54:20.378 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - Set custom objective function: MINIMIZE
+2025-12-09 18:54:20.379 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - Starting optimization reasoning for 10 timesteps
+2025-12-09 18:54:20.381 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - Generated 22 candidate solutions
+2025-12-09 18:54:20.383 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - 22 feasible solutions after hard constraint filtering
+2025-12-09 18:54:20.395 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - Optimization complete. Best score: 0.0
