@@ -1,9 +1,12 @@
 package com.example;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Rule {
+public class Rule implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String raw;
     private String name;
 

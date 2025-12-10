@@ -113,3 +113,690 @@
 2025-12-09 18:54:20.381 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - Generated 22 candidate solutions
 2025-12-09 18:54:20.383 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - 22 feasible solutions after hard constraint filtering
 2025-12-09 18:54:20.395 [com.example.ExampleV12Combined.main()] INFO  com.example.OptimizationReasoner - Optimization complete. Best score: 0.0
+2025-12-10 07:29:52.349 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 07:29:52.357 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 07:30:14.123 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 07:30:14.132 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 07:30:30.873 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 07:30:30.880 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 07:30:43.499 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 07:30:43.706 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 07:30:43.745 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 07:30:43.795 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 07:30:43.796 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 07:30:43.811 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 07:30:43.812 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 49 facts and 3 rules across 3 workers
+2025-12-10 07:30:43.821 [pool-1-thread-1] ERROR c.e.distributed.DistributedMaster - Failed to distribute data to worker worker1
+java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.Rule
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addRule(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:215)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.NotSerializableException: com.example.Rule
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:30:43.822 [pool-1-thread-3] ERROR c.e.distributed.DistributedMaster - Failed to distribute data to worker worker3
+java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.Rule
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addRule(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:215)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.NotSerializableException: com.example.Rule
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:30:43.821 [pool-1-thread-2] ERROR c.e.distributed.DistributedMaster - Failed to distribute data to worker worker2
+java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.Rule
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addRule(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:215)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.NotSerializableException: com.example.Rule
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:30:43.827 [com.example.ExampleDistributed.main()] ERROR c.e.distributed.DistributedMaster - Distribution timeout or failure
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Failed to distribute data
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:124)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:207)
+	at com.example.distributed.DistributedMaster.distributeData(DistributedMaster.java:239)
+	at com.example.distributed.DistributedMaster.reason(DistributedMaster.java:144)
+	at com.example.distributed.DistributedReasoner.reason(DistributedReasoner.java:94)
+	at com.example.ExampleDistributed.main(ExampleDistributed.java:81)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:279)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.RuntimeException: Failed to distribute data
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:229)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	... 1 common frames omitted
+Caused by: java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.Rule
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addRule(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:215)
+	... 5 common frames omitted
+Caused by: java.io.NotSerializableException: com.example.Rule
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:30:43.829 [com.example.ExampleDistributed.main()] ERROR c.e.distributed.DistributedMaster - Distribution timeout or failure
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Failed to distribute data
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:124)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:207)
+	at com.example.distributed.DistributedMaster.distributeData(DistributedMaster.java:239)
+	at com.example.distributed.DistributedMaster.reason(DistributedMaster.java:144)
+	at com.example.distributed.DistributedReasoner.reason(DistributedReasoner.java:94)
+	at com.example.ExampleDistributed.main(ExampleDistributed.java:81)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:279)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.RuntimeException: Failed to distribute data
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:229)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	... 1 common frames omitted
+Caused by: java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.Rule
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addRule(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:215)
+	... 5 common frames omitted
+Caused by: java.io.NotSerializableException: com.example.Rule
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:30:43.832 [com.example.ExampleDistributed.main()] ERROR c.e.distributed.DistributedMaster - Distribution timeout or failure
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Failed to distribute data
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:124)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:207)
+	at com.example.distributed.DistributedMaster.distributeData(DistributedMaster.java:239)
+	at com.example.distributed.DistributedMaster.reason(DistributedMaster.java:144)
+	at com.example.distributed.DistributedReasoner.reason(DistributedReasoner.java:94)
+	at com.example.ExampleDistributed.main(ExampleDistributed.java:81)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:279)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.RuntimeException: Failed to distribute data
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:229)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	... 1 common frames omitted
+Caused by: java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.Rule
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addRule(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:215)
+	... 5 common frames omitted
+Caused by: java.io.NotSerializableException: com.example.Rule
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:30:43.838 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 07:30:43.838 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 07:30:43.838 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 07:30:43.847 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 7ms
+2025-12-10 07:30:43.847 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 0 facts in 7ms
+2025-12-10 07:30:43.847 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 0 facts in 7ms
+2025-12-10 07:30:43.854 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=0, processed=0, time=7ms}
+2025-12-10 07:30:43.854 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=0, processed=0, time=7ms}
+2025-12-10 07:30:43.854 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=7ms}
+2025-12-10 07:30:43.854 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 07:30:43.855 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 0 total facts across 11 timesteps
+2025-12-10 07:30:43.857 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 46ms
+2025-12-10 07:30:43.882 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 07:36:10.081 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 07:36:20.312 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 07:36:20.321 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 07:36:24.388 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 07:36:30.305 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 07:36:30.317 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 07:36:36.249 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 07:36:41.786 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 07:36:41.794 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 07:36:50.223 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 07:36:50.354 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 07:36:50.401 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 07:36:50.440 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 07:36:50.440 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 07:36:50.450 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 07:36:50.451 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 49 facts and 3 rules across 3 workers
+2025-12-10 07:36:50.476 [pool-1-thread-3] ERROR c.e.distributed.DistributedMaster - Failed to distribute data to worker worker3
+java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.TimedFact
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addFact(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:220)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.NotSerializableException: com.example.TimedFact
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:36:50.476 [pool-1-thread-2] ERROR c.e.distributed.DistributedMaster - Failed to distribute data to worker worker2
+java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.TimedFact
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addFact(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:220)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.NotSerializableException: com.example.TimedFact
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:36:50.477 [pool-1-thread-1] ERROR c.e.distributed.DistributedMaster - Failed to distribute data to worker worker1
+java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.TimedFact
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addFact(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:220)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.io.NotSerializableException: com.example.TimedFact
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:36:50.484 [com.example.ExampleDistributed.main()] ERROR c.e.distributed.DistributedMaster - Distribution timeout or failure
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Failed to distribute data
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:124)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:207)
+	at com.example.distributed.DistributedMaster.distributeData(DistributedMaster.java:239)
+	at com.example.distributed.DistributedMaster.reason(DistributedMaster.java:144)
+	at com.example.distributed.DistributedReasoner.reason(DistributedReasoner.java:94)
+	at com.example.ExampleDistributed.main(ExampleDistributed.java:81)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:279)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.RuntimeException: Failed to distribute data
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:229)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	... 1 common frames omitted
+Caused by: java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.TimedFact
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addFact(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:220)
+	... 5 common frames omitted
+Caused by: java.io.NotSerializableException: com.example.TimedFact
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:36:50.486 [com.example.ExampleDistributed.main()] ERROR c.e.distributed.DistributedMaster - Distribution timeout or failure
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Failed to distribute data
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:124)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:207)
+	at com.example.distributed.DistributedMaster.distributeData(DistributedMaster.java:239)
+	at com.example.distributed.DistributedMaster.reason(DistributedMaster.java:144)
+	at com.example.distributed.DistributedReasoner.reason(DistributedReasoner.java:94)
+	at com.example.ExampleDistributed.main(ExampleDistributed.java:81)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:279)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.RuntimeException: Failed to distribute data
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:229)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	... 1 common frames omitted
+Caused by: java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.TimedFact
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addFact(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:220)
+	... 5 common frames omitted
+Caused by: java.io.NotSerializableException: com.example.TimedFact
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:36:50.487 [com.example.ExampleDistributed.main()] ERROR c.e.distributed.DistributedMaster - Distribution timeout or failure
+java.util.concurrent.ExecutionException: java.lang.RuntimeException: Failed to distribute data
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:124)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:207)
+	at com.example.distributed.DistributedMaster.distributeData(DistributedMaster.java:239)
+	at com.example.distributed.DistributedMaster.reason(DistributedMaster.java:144)
+	at com.example.distributed.DistributedReasoner.reason(DistributedReasoner.java:94)
+	at com.example.ExampleDistributed.main(ExampleDistributed.java:81)
+	at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:279)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.lang.RuntimeException: Failed to distribute data
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:229)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	... 1 common frames omitted
+Caused by: java.rmi.MarshalException: error marshalling arguments; nested exception is: 
+	java.io.NotSerializableException: com.example.TimedFact
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:158)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:215)
+	at java.rmi/java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:160)
+	at jdk.proxy3/jdk.proxy3.$Proxy28.addFact(Unknown Source)
+	at com.example.distributed.DistributedMaster.lambda$0(DistributedMaster.java:220)
+	... 5 common frames omitted
+Caused by: java.io.NotSerializableException: com.example.TimedFact
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1121)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:336)
+	at java.rmi/sun.rmi.server.UnicastRef.marshalValue(UnicastRef.java:291)
+	at java.rmi/sun.rmi.server.UnicastRef.invoke(UnicastRef.java:153)
+	... 9 common frames omitted
+2025-12-10 07:36:50.496 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 07:36:50.496 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 07:36:50.496 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 07:36:50.500 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 3ms
+2025-12-10 07:36:50.500 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 0 facts in 3ms
+2025-12-10 07:36:50.500 [RMI TCP Connection(3)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 0 facts in 2ms
+2025-12-10 07:36:50.505 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=0, processed=0, time=3ms}
+2025-12-10 07:36:50.510 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=0, processed=0, time=2ms}
+2025-12-10 07:36:50.510 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=3ms}
+2025-12-10 07:36:50.510 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 07:36:50.511 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 0 total facts across 11 timesteps
+2025-12-10 07:36:50.512 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 61ms
+2025-12-10 07:36:50.544 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 07:41:56.469 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 07:42:02.229 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 07:42:02.235 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 07:42:11.457 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 07:42:16.482 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 07:42:16.489 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 07:42:21.040 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 07:42:26.676 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 07:42:26.684 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 07:42:33.603 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 07:42:33.745 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 07:42:33.783 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 07:42:33.832 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 07:42:33.832 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 07:42:33.839 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 07:42:33.840 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 49 facts and 3 rules across 3 workers
+2025-12-10 07:42:33.921 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 07:42:33.921 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 07:42:33.922 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 07:42:33.928 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 22 facts in 5ms
+2025-12-10 07:42:33.931 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 220 facts in 9ms
+2025-12-10 07:42:33.932 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 297 facts in 10ms
+2025-12-10 07:42:33.951 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=297, processed=297, time=10ms}
+2025-12-10 07:42:33.951 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=220, processed=220, time=9ms}
+2025-12-10 07:42:33.952 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=22, processed=22, time=5ms}
+2025-12-10 07:42:33.952 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 07:42:33.956 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 539 total facts across 11 timesteps
+2025-12-10 07:42:33.957 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 117ms
+2025-12-10 07:42:33.984 [com.example.ExampleDistributed.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 07:48:13.289 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 07:48:19.145 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 07:48:19.150 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 07:48:23.138 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 07:48:28.762 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 07:48:28.775 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 07:48:32.954 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 07:48:38.088 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 07:48:38.097 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 07:48:48.449 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 07:48:48.590 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 07:48:48.629 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 07:48:48.668 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 07:48:48.668 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 07:48:48.675 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 07:48:48.676 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 2 facts and 1 rules across 3 workers
+2025-12-10 07:48:48.698 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 07:48:48.698 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 07:48:48.698 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 07:48:48.706 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 5ms
+2025-12-10 07:48:48.710 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 11 facts in 10ms
+2025-12-10 07:48:48.710 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 11 facts in 10ms
+2025-12-10 07:48:48.716 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=11, processed=11, time=10ms}
+2025-12-10 07:48:48.717 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=11, processed=11, time=10ms}
+2025-12-10 07:48:48.717 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=5ms}
+2025-12-10 07:48:48.718 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 07:48:48.718 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 22 total facts across 11 timesteps
+2025-12-10 07:48:48.719 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 43ms
+2025-12-10 07:48:48.739 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 07:51:48.314 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 07:51:51.593 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 07:51:54.977 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 07:52:10.102 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 07:52:10.113 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 07:52:22.083 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 07:52:22.092 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 07:52:28.054 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 07:52:28.068 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 07:52:37.574 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 07:52:37.729 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 07:52:37.752 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 07:52:37.798 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 07:52:37.799 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 07:52:37.804 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 07:52:37.804 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 2 facts and 1 rules across 3 workers
+2025-12-10 07:52:37.828 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 07:52:37.829 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 07:52:37.829 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 07:52:37.830 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 0 facts in 2ms
+2025-12-10 07:52:37.834 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 0 facts in 4ms
+2025-12-10 07:52:37.834 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 3ms
+2025-12-10 07:52:37.838 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=0, processed=11, time=4ms}
+2025-12-10 07:52:37.839 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=0, processed=11, time=2ms}
+2025-12-10 07:52:37.840 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=3ms}
+2025-12-10 07:52:37.840 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 07:52:37.840 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 0 total facts across 11 timesteps
+2025-12-10 07:52:37.841 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 37ms
+2025-12-10 07:52:37.854 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 07:56:43.368 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@2cca4f70
+2025-12-10 07:56:43.375 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@34cf5794
+2025-12-10 07:56:43.376 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@3e6ba2f0
+2025-12-10 07:56:43.377 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@b038ce4
+2025-12-10 07:56:43.377 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added fact: com.example.Fact@17c9a97e
+2025-12-10 07:56:43.384 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added rule: Rule{name='frequent_large', raw='suspicious(a) <- largeTransaction(a), largeTransaction(a)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-10 07:56:43.387 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added rule: Rule{name='new_account_risk', raw='risky(a) <- newAccount(a), largeTransaction(a)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-10 07:56:43.388 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added rule: Rule{name='guilt_by_association', raw='flagged(x) <-1 Transfer(x,y), suspicious(y)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-10 07:56:43.388 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added rule: Rule{name='review_flagged', raw='needsReview(a) <- flagged(a)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-10 07:56:43.389 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Added rule: Rule{name='review_risky', raw='needsReview(a) <- risky(a)', delay=1, headInterval=[0,0], activeIntervals=[]}
+2025-12-10 07:56:43.389 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - === JavaSense reasoning started ===
+2025-12-10 07:56:43.389 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Timesteps: 10
+2025-12-10 07:56:43.389 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Rules: 5
+2025-12-10 07:56:43.389 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - Facts: 5
+2025-12-10 07:56:43.401 [com.example.ExampleFraudDetection.main()] INFO  com.example.JavaSense - === JavaSense reasoning completed ===
+2025-12-10 08:03:25.949 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 08:03:30.889 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 08:03:30.899 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 08:03:32.150 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 08:03:36.775 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 08:03:36.791 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 08:03:37.688 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 08:03:42.178 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 08:03:42.184 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 08:03:51.657 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 08:03:51.808 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 08:03:51.844 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 08:03:51.883 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 08:03:51.884 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 08:03:51.893 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 08:03:51.894 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 2 facts and 1 rules across 3 workers
+2025-12-10 08:03:51.919 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 08:03:51.919 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 08:03:51.919 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 08:03:51.922 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 0 facts in 2ms
+2025-12-10 08:03:51.923 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 0 facts in 3ms
+2025-12-10 08:03:51.925 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 4ms
+2025-12-10 08:03:51.929 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=0, processed=11, time=3ms}
+2025-12-10 08:03:51.929 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=0, processed=11, time=2ms}
+2025-12-10 08:03:51.930 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=4ms}
+2025-12-10 08:03:51.930 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 08:03:51.931 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 0 total facts across 11 timesteps
+2025-12-10 08:03:51.932 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 39ms
+2025-12-10 08:03:51.949 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 08:05:28.967 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 08:05:34.225 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 08:05:34.232 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 08:05:39.413 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 08:05:44.159 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 08:05:44.165 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 08:05:47.538 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 08:05:52.190 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 08:05:52.196 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 08:06:01.324 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 08:06:01.475 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 08:06:01.519 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 08:06:01.563 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 08:06:01.564 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 08:06:01.573 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 08:06:01.574 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 2 facts and 1 rules across 3 workers
+2025-12-10 08:06:01.603 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 08:06:01.603 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 08:06:01.603 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 08:06:01.607 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 3ms
+2025-12-10 08:06:01.609 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 0 facts in 4ms
+2025-12-10 08:06:01.610 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 0 facts in 4ms
+2025-12-10 08:06:01.615 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=0, processed=11, time=4ms}
+2025-12-10 08:06:01.616 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=0, processed=11, time=4ms}
+2025-12-10 08:06:01.618 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=3ms}
+2025-12-10 08:06:01.619 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 08:06:01.619 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 0 total facts across 11 timesteps
+2025-12-10 08:06:01.621 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 48ms
+2025-12-10 08:06:01.638 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 08:08:28.852 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 08:08:32.424 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 08:08:37.310 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 08:08:46.270 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 08:08:46.281 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 08:08:54.103 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 08:08:54.111 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 08:09:01.812 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 08:09:01.820 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 08:09:09.764 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 08:09:09.912 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 08:09:09.956 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 08:09:10.001 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 08:09:10.001 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 08:09:10.007 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 08:09:10.008 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 2 facts and 1 rules across 3 workers
+2025-12-10 08:09:10.035 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 08:09:10.036 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 08:09:10.036 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 08:09:10.040 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 extracting facts from t=0 to t=10
+2025-12-10 08:09:10.041 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 has 0 base facts to filter out
+2025-12-10 08:09:10.041 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=0
+2025-12-10 08:09:10.041 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 extracting facts from t=0 to t=10
+2025-12-10 08:09:10.041 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=1
+2025-12-10 08:09:10.041 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 has 1 base facts to filter out
+2025-12-10 08:09:10.042 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=2
+2025-12-10 08:09:10.042 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 extracting facts from t=0 to t=10
+2025-12-10 08:09:10.042 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=0
+2025-12-10 08:09:10.043 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=3
+2025-12-10 08:09:10.043 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 has 1 base facts to filter out
+2025-12-10 08:09:10.043 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=1
+2025-12-10 08:09:10.044 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=4
+2025-12-10 08:09:10.044 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=0
+2025-12-10 08:09:10.044 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=2
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=5
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=1
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=3
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=6
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=2
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=4
+2025-12-10 08:09:10.045 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=7
+2025-12-10 08:09:10.047 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=3
+2025-12-10 08:09:10.047 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=5
+2025-12-10 08:09:10.047 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=8
+2025-12-10 08:09:10.048 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=4
+2025-12-10 08:09:10.049 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=9
+2025-12-10 08:09:10.049 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=5
+2025-12-10 08:09:10.049 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=6
+2025-12-10 08:09:10.049 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 0 atoms at t=10
+2025-12-10 08:09:10.049 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=6
+2025-12-10 08:09:10.049 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=7
+2025-12-10 08:09:10.050 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 extracted 0 derived facts total
+2025-12-10 08:09:10.050 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=7
+2025-12-10 08:09:10.050 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 0 facts in 14ms
+2025-12-10 08:09:10.050 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=8
+2025-12-10 08:09:10.050 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=8
+2025-12-10 08:09:10.052 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=9
+2025-12-10 08:09:10.052 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=9
+2025-12-10 08:09:10.053 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 1 atoms at t=10
+2025-12-10 08:09:10.053 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 1 atoms at t=10
+2025-12-10 08:09:10.053 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 extracted 0 derived facts total
+2025-12-10 08:09:10.053 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 extracted 0 derived facts total
+2025-12-10 08:09:10.054 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 0 facts in 16ms
+2025-12-10 08:09:10.054 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 0 facts in 18ms
+2025-12-10 08:09:10.058 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=0, processed=11, time=16ms}
+2025-12-10 08:09:10.059 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=0, processed=11, time=18ms}
+2025-12-10 08:09:10.060 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=0, processed=0, time=14ms}
+2025-12-10 08:09:10.060 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 08:09:10.060 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 0 total facts across 11 timesteps
+2025-12-10 08:09:10.062 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 55ms
+2025-12-10 08:09:10.089 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master
+2025-12-10 08:15:39.240 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 shut down
+2025-12-10 08:15:44.512 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 shut down
+2025-12-10 08:15:48.016 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 shut down
+2025-12-10 08:16:04.515 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 created on port 5001
+2025-12-10 08:16:04.521 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker1 started and registered on port 5001
+2025-12-10 08:16:10.451 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 created on port 5002
+2025-12-10 08:16:10.459 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker2 started and registered on port 5002
+2025-12-10 08:16:18.184 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 created on port 5003
+2025-12-10 08:16:18.191 [com.example.distributed.DistributedWorker.main()] INFO  c.e.distributed.DistributedWorker - Worker worker3 started and registered on port 5003
+2025-12-10 08:16:27.072 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Set partition strategy: PredicatePartitioner
+2025-12-10 08:16:27.211 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker1 at localhost:5001
+2025-12-10 08:16:27.248 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker2 at localhost:5002
+2025-12-10 08:16:27.279 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Added worker: worker3 at localhost:5003
+2025-12-10 08:16:27.280 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedReasoner - DistributedReasoner initialized with 3 workers
+2025-12-10 08:16:27.285 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Starting distributed reasoning with 3 workers for 10 timesteps
+2025-12-10 08:16:27.286 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Partitioned 2 facts and 1 rules across 3 workers
+2025-12-10 08:16:27.310 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 reasoning from t=0 to t=10
+2025-12-10 08:16:27.311 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 reasoning from t=0 to t=10
+2025-12-10 08:16:27.311 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 reasoning from t=0 to t=10
+2025-12-10 08:16:27.323 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 extracting facts from t=0 to t=10
+2025-12-10 08:16:27.323 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 has 2 base facts to filter out
+2025-12-10 08:16:27.323 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 extracting facts from t=0 to t=10
+2025-12-10 08:16:27.325 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 2 atoms at t=0
+2025-12-10 08:16:27.325 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 has 2 base facts to filter out
+2025-12-10 08:16:27.325 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=1
+2025-12-10 08:16:27.325 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 2 atoms at t=0
+2025-12-10 08:16:27.325 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=1
+2025-12-10 08:16:27.325 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=1
+2025-12-10 08:16:27.326 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=1
+2025-12-10 08:16:27.329 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=2
+2025-12-10 08:16:27.330 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=2
+2025-12-10 08:16:27.331 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=3
+2025-12-10 08:16:27.331 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=3
+2025-12-10 08:16:27.331 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 extracting facts from t=0 to t=10
+2025-12-10 08:16:27.328 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=2
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=4
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 has 2 base facts to filter out
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=4
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=2
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 2 atoms at t=0
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=5
+2025-12-10 08:16:27.332 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=3
+2025-12-10 08:16:27.333 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=1
+2025-12-10 08:16:27.333 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=5
+2025-12-10 08:16:27.333 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=3
+2025-12-10 08:16:27.333 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=1
+2025-12-10 08:16:27.333 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=6
+2025-12-10 08:16:27.333 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=4
+2025-12-10 08:16:27.334 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=6
+2025-12-10 08:16:27.334 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=7
+2025-12-10 08:16:27.334 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=4
+2025-12-10 08:16:27.334 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=5
+2025-12-10 08:16:27.334 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=7
+2025-12-10 08:16:27.336 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=5
+2025-12-10 08:16:27.336 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=8
+2025-12-10 08:16:27.336 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=6
+2025-12-10 08:16:27.337 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=8
+2025-12-10 08:16:27.337 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=6
+2025-12-10 08:16:27.337 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=9
+2025-12-10 08:16:27.337 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=7
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=9
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=7
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=2
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found 3 atoms at t=10
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=8
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=2
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 found derived fact: atRisk(Engine) at t=10
+2025-12-10 08:16:27.338 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=8
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 extracted 10 derived facts total
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=3
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=9
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker1 completed reasoning: derived 10 facts in 28ms
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=3
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=9
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=4
+2025-12-10 08:16:27.339 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found 3 atoms at t=10
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=4
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 found derived fact: atRisk(Engine) at t=10
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=5
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 extracted 10 derived facts total
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=5
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker3 completed reasoning: derived 10 facts in 29ms
+2025-12-10 08:16:27.340 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=6
+2025-12-10 08:16:27.342 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=6
+2025-12-10 08:16:27.342 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=7
+2025-12-10 08:16:27.343 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=7
+2025-12-10 08:16:27.344 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=8
+2025-12-10 08:16:27.345 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=8
+2025-12-10 08:16:27.345 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=9
+2025-12-10 08:16:27.345 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker1 completed: WorkResult{worker=worker1, derived=10, processed=32, time=28ms}
+2025-12-10 08:16:27.345 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=9
+2025-12-10 08:16:27.346 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found 3 atoms at t=10
+2025-12-10 08:16:27.346 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 found derived fact: atRisk(Engine) at t=10
+2025-12-10 08:16:27.347 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 extracted 10 derived facts total
+2025-12-10 08:16:27.347 [RMI TCP Connection(2)-192.168.1.206] INFO  c.e.distributed.DistributedWorker - Worker worker2 completed reasoning: derived 10 facts in 36ms
+2025-12-10 08:16:27.352 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker2 completed: WorkResult{worker=worker2, derived=10, processed=32, time=36ms}
+2025-12-10 08:16:27.353 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Worker worker3 completed: WorkResult{worker=worker3, derived=10, processed=32, time=29ms}
+2025-12-10 08:16:27.353 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregating results from 3 workers
+2025-12-10 08:16:27.353 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Aggregation complete: 30 total facts across 11 timesteps
+2025-12-10 08:16:27.354 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Distributed reasoning completed in 68ms
+2025-12-10 08:16:27.379 [com.example.ExampleDistributedDebug.main()] INFO  c.e.distributed.DistributedMaster - Shutting down distributed master

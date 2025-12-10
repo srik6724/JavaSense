@@ -175,7 +175,11 @@ public class OptimizedReasoner {
         // Track new facts at each timestep
         Map<Integer, Set<Atom>> newFactsPerTime = new HashMap<>();
         for (int t = 0; t <= timesteps; t++) {
-            newFactsPerTime.put(t, new HashSet<>(storage.getDynamicAt(t)));
+            Set<Atom> newFacts = new HashSet<>(storage.getDynamicAt(t));
+            // BUG FIX: Include static facts in initial iteration so rules get evaluated
+            // Static facts are "new" at the start and should trigger rule evaluation
+            newFacts.addAll(storage.getAllStatic());
+            newFactsPerTime.put(t, newFacts);
         }
 
         // Semi-naive iteration

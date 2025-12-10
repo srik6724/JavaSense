@@ -1,8 +1,11 @@
 package com.example;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TimedFact {
+public class TimedFact implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final Atom atom;
     private final String name;
     private final List<Interval> intervals;

@@ -1,6 +1,10 @@
 package com.example;
 
-public class Interval {
+import java.io.Serializable;
+
+public class Interval implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final int start;
     private final int end;  // inclusive
 

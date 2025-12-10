@@ -1,5 +1,7 @@
 package com.example;
 
+import java.io.Serializable;
+
 /**
  * Represents a literal in a rule body, which can be either positive or negated.
  *
@@ -13,7 +15,9 @@ package com.example;
  * Literal neg2 = Literal.parse("~popular(x)");      // negated (alt syntax)
  * }</pre>
  */
-public class Literal {
+public class Literal implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final Atom atom;
     private final boolean negated;
 

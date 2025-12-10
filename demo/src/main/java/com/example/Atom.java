@@ -1,10 +1,13 @@
 package com.example;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Atom {
+public class Atom implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final String predicate;   // e.g. "popular", "Friends", "owns"
     private final List<String> args;  // e.g. ["Mary"], ["John","Dog"]
 
