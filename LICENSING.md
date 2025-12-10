@@ -1,6 +1,33 @@
 # JavaSense Licensing Options
 
-JavaSense is available under one licensing option:
+JavaSense is **dual-licensed** under two options:
+
+---
+
+## 1️⃣ Apache 2.0 Open Source License (Free)
+
+**For open source projects, research, and evaluation**
+
+### ✅ Apache 2.0 includes:
+- 🆓 **100% Free** for all use cases
+- 📖 **Full source code access**
+- 🔓 **Commercial use permitted** (with conditions)
+- 🔧 **Modify and distribute** freely
+- 💡 **Patent grant** included
+- 📚 **Community support** via GitHub issues
+- 🎓 **Perfect for**: Research, education, evaluation, personal projects
+
+### 📋 Key Terms
+- ✅ Use in commercial products (must comply with Apache 2.0)
+- ✅ Modify and create derivative works
+- ✅ Distribute original and modified versions
+- ✅ Patent grant protects you from patent claims
+- ⚠️ **Must**: Include Apache 2.0 license text in distributions
+- ⚠️ **Must**: State changes made to the software
+- ⚠️ **No warranty**: Software provided "AS IS"
+- ⚠️ **No support**: Community support only
+
+**Full license text**: [LICENSE](LICENSE)
 
 ---
 
