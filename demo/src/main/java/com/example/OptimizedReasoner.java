@@ -1,5 +1,10 @@
 package com.example;
 
+import com.example.gpu.GpuMode;
+import com.example.gpu.GpuReasoningEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -29,6 +34,11 @@ public class OptimizedReasoner {
     private final List<Rule> rules = new ArrayList<>();
     private final List<TimedFact> baseFacts = new ArrayList<>();
     private final Provenance provenance = new Provenance();
+
+    // GPU acceleration (v1.4+)
+    private static final Logger logger = LoggerFactory.getLogger(OptimizedReasoner.class);
+    private GpuMode gpuMode = GpuMode.CPU_ONLY;
+    private GpuReasoningEngine gpuEngine = null;
 
     // OPTIMIZATION 1: Rule Indexing
     // Index facts by predicate for fast lookup
@@ -107,6 +117,85 @@ public class OptimizedReasoner {
 
     public void addRule(Rule r) { rules.add(r); }
     public void addFact(TimedFact f) { baseFacts.add(f); }
+
+    /**
+     * Sets the GPU acceleration mode.
+     *
+     * @param mode GPU mode (CPU_ONLY, GPU_ONLY, or AUTO)
+     */
+    public void setGpuMode(GpuMode mode) {
+        this.gpuMode = mode;
+
+        if (mode != GpuMode.CPU_ONLY && gpuEngine == null) {
+            gpuEngine = new GpuReasoningEngine();
+
+            if (mode == GpuMode.GPU_ONLY && !gpuEngine.isGpuAvailable()) {
+                throw new IllegalStateException(
+                    "GPU_ONLY mode requested but no GPU available: " + gpuEngine.getGpuInfo()
+                );
+            }
+        }
+    }
+
+    /**
+     * Gets the current GPU mode.
+     */
+    public GpuMode getGpuMode() {
+        return gpuMode;
+    }
+
+    /**
+     * Sets GPU configuration thresholds.
+     *
+     * @param minFacts minimum facts to use GPU
+     * @param minRules minimum rules to use GPU
+     * @param minComplexity minimum complexity threshold
+     */
+    public void setGpuThresholds(int minFacts, int minRules, int minComplexity) {
+        if (gpuEngine == null) {
+            gpuEngine = new GpuReasoningEngine();
+        }
+        gpuEngine.setMinFactsForGpu(minFacts);
+        gpuEngine.setMinRulesForGpu(minRules);
+        gpuEngine.setMinComplexityForGpu(minComplexity);
+    }
+
+    /**
+     * Gets GPU statistics (if GPU engine initialized).
+     */
+    public String getGpuInfo() {
+        if (gpuEngine == null) {
+            return "GPU engine not initialized";
+        }
+        return gpuEngine.getGpuInfo();
+    }
+
+    /**
+     * Checks if GPU will be used for the given problem size.
+     */
+    public boolean willUseGpu(int timesteps) {
+        if (gpuMode == GpuMode.CPU_ONLY) {
+            return false;
+        }
+        if (gpuMode == GpuMode.GPU_ONLY) {
+            return gpuEngine != null && gpuEngine.isGpuAvailable();
+        }
+        // AUTO mode
+        if (gpuEngine == null || !gpuEngine.isGpuAvailable()) {
+            return false;
+        }
+        return gpuEngine.shouldUseGpu(baseFacts.size(), rules.size(), timesteps);
+    }
+
+    /**
+     * Cleans up GPU resources.
+     * Call this when done with the reasoner if GPU mode was used.
+     */
+    public void cleanup() {
+        if (gpuEngine != null) {
+            gpuEngine.cleanup();
+        }
+    }
 
     /**
      * Optimized reasoning with all performance improvements enabled.
@@ -217,7 +306,7 @@ public class OptimizedReasoner {
                         // Find substitutions (optimization: could check if rule body matches new facts)
                         List<Map<String, String>> subsList = useIndexing
                             ? findAllSubstitutionsIndexed(r.getBodyLiterals(), allFactsAtT, storage, t)
-                            : findAllSubstitutionsWithNegation(r.getBodyLiterals(), allFactsAtT);
+                            : findAllSubstitutionsWithGpu(r.getBodyLiterals(), allFactsAtT, t);
 
                         for (Map<String, String> theta : subsList) {
                             Atom headPattern = Atom.parse(r.getHead());
@@ -301,7 +390,7 @@ public class OptimizedReasoner {
                     Set<Atom> factsAtT = storage.getAllAt(t);
                     List<Map<String, String>> subsList = useIndexing
                         ? findAllSubstitutionsIndexed(r.getBodyLiterals(), factsAtT, storage, t)
-                        : findAllSubstitutionsWithNegation(r.getBodyLiterals(), factsAtT);
+                        : findAllSubstitutionsWithGpu(r.getBodyLiterals(), factsAtT, t);
 
                     for (Map<String, String> theta : subsList) {
                         Atom headPattern = Atom.parse(r.getHead());
@@ -375,8 +464,8 @@ public class OptimizedReasoner {
                     int baseTime = t + r.getDelay();
                     if (baseTime > timesteps) continue;
 
-                    List<Map<String, String>> subsList = findAllSubstitutionsWithNegation(
-                        r.getBodyLiterals(), factsAtTime.get(t));
+                    List<Map<String, String>> subsList = findAllSubstitutionsWithGpu(
+                        r.getBodyLiterals(), factsAtTime.get(t), t);
 
                     for (Map<String, String> theta : subsList) {
                         Atom headPattern = Atom.parse(r.getHead());
@@ -518,7 +607,7 @@ public class OptimizedReasoner {
                     // Find substitutions
                     List<Map<String, String>> subsList = useIndexing
                         ? findAllSubstitutionsIndexed(r.getBodyLiterals(), allFactsAtT, storage, t)
-                        : findAllSubstitutionsWithNegation(r.getBodyLiterals(), allFactsAtT);
+                        : findAllSubstitutionsWithGpu(r.getBodyLiterals(), allFactsAtT, t);
 
                     for (Map<String, String> theta : subsList) {
                         Atom headPattern = Atom.parse(r.getHead());
@@ -585,6 +674,68 @@ public class OptimizedReasoner {
     }
 
     // --- Unification helpers (same as original) ---
+
+    /**
+     * Finds substitutions using GPU if beneficial, otherwise uses CPU.
+     *
+     * @param bodyLiterals pattern to match
+     * @param factsAtTime facts at current timestep
+     * @param timestep current timestep
+     * @return list of substitutions
+     */
+    private List<Map<String, String>> findAllSubstitutionsWithGpu(
+            List<Literal> bodyLiterals,
+            Set<Atom> factsAtTime,
+            int timestep) {
+
+        // Check if GPU should be used
+        if (willUseGpu(timestep) && canUseGpuForPattern(bodyLiterals)) {
+            try {
+                // Convert Set to List
+                List<Atom> factsList = new ArrayList<>(factsAtTime);
+
+                // Use GPU
+                return gpuEngine.findSubstitutionsGpu(bodyLiterals, factsList, timestep);
+
+            } catch (Exception e) {
+                // GPU failed - fall back to CPU
+                logger.warn("GPU pattern matching failed, falling back to CPU: {}", e.getMessage());
+                return findAllSubstitutionsWithNegation(bodyLiterals, factsAtTime);
+            }
+        }
+
+        // Use CPU
+        return findAllSubstitutionsWithNegation(bodyLiterals, factsAtTime);
+    }
+
+    /**
+     * Checks if GPU can be used for this pattern.
+     *
+     * GPU now supports (Phase 7):
+     * - Single positive literal
+     * - Multi-literal patterns
+     * - Negation (when combined with positive literals)
+     */
+    private boolean canUseGpuForPattern(List<Literal> bodyLiterals) {
+        if (gpuMode == GpuMode.CPU_ONLY) {
+            return false;
+        }
+
+        // GPU now supports all patterns!
+        // - Single literals (fast path)
+        // - Multi-literal joins
+        // - Negation filtering
+
+        // Only restriction: at least one positive literal (for anchoring)
+        boolean hasPositiveLiteral = bodyLiterals.stream().anyMatch(Literal::isPositive);
+
+        if (!hasPositiveLiteral) {
+            logger.debug("Pattern has no positive literals - cannot use GPU");
+            return false;
+        }
+
+        return true;
+    }
 
     private List<Map<String, String>> findAllSubstitutionsWithNegation(List<Literal> bodyLiterals, Set<Atom> factsAtTime) {
         List<Map<String, String>> results = new ArrayList<>();
